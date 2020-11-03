@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxAutocompliteComponent } from './ngx-autocomplite/ngx-autocomplite.component';
+import { AutoCompliteComponent } from './auto-complite/auto-complite.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    NgxAutocompliteComponent
+    NgxAutocompliteComponent,
+    AutoCompliteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     NgxAutocompliteComponent

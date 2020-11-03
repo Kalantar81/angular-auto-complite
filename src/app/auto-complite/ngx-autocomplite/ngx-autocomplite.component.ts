@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgxAutocompliteComponent implements OnInit {
 
+  //public modelValue: string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  public modelValueEvent(model) {
+    console.log(model);
+   // this.modelValue = model;
+    }
 
 }

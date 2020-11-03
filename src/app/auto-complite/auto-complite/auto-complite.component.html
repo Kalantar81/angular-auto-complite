@@ -1,0 +1,14 @@
+<div class = "mainDiv">
+  <input
+      id ='search'
+      type = 'text'
+      [(ngModel)] = 'valueForOutput'
+      (keyup) = "sortInjectedArray($event)">
+  <div class ="dropdownArea">
+    <div
+      [hidden] ="!valueForOutput"
+      *ngFor = 'let number of numberArray'>
+    {{number}}
+    </div>
+  </div>
+</div>
