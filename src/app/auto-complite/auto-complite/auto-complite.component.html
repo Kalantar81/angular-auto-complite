@@ -1,13 +1,13 @@
-<div class = "mainDiv">
+<div class = "autoComplite-container">
   <input
       id ='search'
       type = 'text'
-      [(ngModel)] = 'valueForOutput'
+      [(ngModel)] = 'value'
       (keyup) = "sortInjectedArray($event)">
   <div class ="dropdownArea">
     <div
-      [hidden] ="!valueForOutput"
-      *ngFor = 'let number of numberArray'>
+      [hidden] ="!value"
+      *ngFor = 'let number of _sortedObjectsArray'>
     {{number}}
     </div>
   </div>

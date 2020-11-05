@@ -10,20 +10,20 @@ import { Component, OnInit } from '@angular/core';
 export class AutoCompliteComponent implements OnInit {
 
   @Input()
-  set numberArray (p_val: Array<any>){
-      this._numberArray = p_val;
+  set searchArray(p_searchArray: Array<any>){
+      this._searchArray = p_searchArray;
   }
 
-  get numberArray(): Array<any> {
-    return this._numberArray;
+  get searchArray(): Array<any> {
+    return this._searchArray;
   }
 
   @Output() modelValue = new EventEmitter<string>();
 
-  _numberArray: Array<any>;
   private _compareLengthValue = 0;
-  public startArray: Array<any>;
-  public valueForOutput: string;
+  private _searchArray: Array<any>;
+  private _sortedObjectsArray: Array<any>;
+  public value: string;
   public countries = [
     {'name': 'Brazil', 'code': 'BR'},
     {'name': 'Canada', 'code': 'CA'},
@@ -43,7 +43,6 @@ export class AutoCompliteComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.startArray = this._numberArray;
   }
 
   public sortInjectedArray(model: any): void {
@@ -51,10 +50,9 @@ export class AutoCompliteComponent implements OnInit {
     this.modelValue.emit(model.target.value);
     if (this._compareLengthValue < modelLength ) {
       this._compareLengthValue++;
-      this._numberArray = this._sortedArray(model.target.value);
+      this._sortedObjectsArray = this._sortedArray(model.target.value);
     } else {
-      this._numberArray = this.startArray;
-      this._numberArray = this._sortedArray(model.target.value);
+      this._sortedObjectsArray = this._sortedArray(model.target.value);
     }
   }
 
